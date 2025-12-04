@@ -1,13 +1,7 @@
-# Use official Tomcat image as base
-FROM tomcat:11
+FROM tomcat:10.1-jdk17
 
-# Remove default apps (optional)
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR file to webapps directory
 COPY UpskillServlet.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose port
 EXPOSE 8080
-
-# Start Tomcat (CMD is inherited from base image)
