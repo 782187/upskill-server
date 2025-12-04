@@ -1,7 +1,4 @@
-FROM tomcat:10.1-jdk17
-
-RUN rm -rf /usr/local/tomcat/webapps/*
-
-COPY UpskillServlet.war /usr/local/tomcat/webapps/ROOT.war
-
-EXPOSE 8080
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY skyroot-0.0.1-SNAPSHOT.jar app.jar
+CMD ["java", "-jar", "app.jar"]
